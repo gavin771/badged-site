@@ -9,12 +9,12 @@ export default class Badge extends Component {
     badgeValue: "",
     badgeColor: "brightgreen",
     badgeTemplate: "flat-square",
-    url: "https://hidden-forest-44927.herokuapp.com/generate",
+    url: "https://custom-badge.netlify.com/.netlify/functions/generateBadge",
   }
 
   generateUrl = () => {
     this.setState({
-      url: `https://hidden-forest-44927.herokuapp.com/generate?template=${
+      url: `https://custom-badge.netlify.com/.netlify/functions/generateBadge?template=${
         this.state.badgeTemplate
       }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
         "Default Title"}&value=${this.state.badgeValue || "Default Value"}`,
