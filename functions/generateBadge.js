@@ -14,10 +14,10 @@ const formatData = ({
 }
 
 exports.handler = function(event, context, callback) {
-  const requestBody = JSON.parse(event.query)
+  // const requestBody =  JSON.parse(event.query)
   console.log(event)
 
-  badge(formatData(requestBody), (svg, err) => {
+  badge(formatData(event.query), (svg, err) => {
     var response
 
     err === undefined ? (response = svg) : (reponse = err)
