@@ -1,4 +1,5 @@
-const badge = require("gh-badges")
+const { BadgeFactory } = require('gh-badges')
+const badge = new BadgeFactory()
 
 const formatData = ({
   title = "Default Title",
