@@ -1,4 +1,4 @@
-const { BadgeFactory } = require('gh-badges')
+const { BadgeFactory } = require("gh-badges")
 const badge = new BadgeFactory()
 
 const formatData = ({
@@ -9,7 +9,7 @@ const formatData = ({
 }) => {
   return {
     text: [` ${title} `, ` ${value} `],
-    colorscheme: color,
+    color: color,
     template: template,
   }
 }
@@ -17,17 +17,13 @@ const formatData = ({
 exports.handler = function(event, context, callback) {
   console.log(event.queryStringParameters)
 
-  badge(formatData(event.queryStringParameters), (svg, err) => {
-    var response
+  const svg = badge.create(formatData(event.queryStringParameters))
 
-    err === undefined ? (response = svg) : (reponse = err)
-
-    callback(null, {
-      statusCode: err ? 500 : 200,
-      headers: {
-        "Content-Type": "image/svg+xml",
-      },
-      body: response,
-    })
+  callback(null, {
+    statusCode: err ? 500 : 200,
+    headers: {
+      "Content-Type": "image/svg+xml",
+    },
+    body: svg,
   })
 }
