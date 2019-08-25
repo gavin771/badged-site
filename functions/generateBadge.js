@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
   const svg = badge.create(formatData(event.queryStringParameters))
 
   callback(null, {
-    statusCode: err ? 500 : 200,
+    statusCode: 200,
     headers: {
       "Content-Type": "image/svg+xml",
     },
