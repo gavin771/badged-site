@@ -38,9 +38,10 @@ const Layout = ({ children }) => {
         <div className="bg-img" />
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built by
-          {` `}
-          <a href="https://github.com/gavin771">gavin771</a>
+          © {new Date().getFullYear()}, Built by {` `}
+          <a href="https://gavinsamuels.com" target="_blank">
+            Gavin Samuels
+          </a>
         </footer>
       </div>
     </>

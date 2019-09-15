@@ -10,10 +10,16 @@ export default class Badge extends Component {
     badgeColor: "brightgreen",
     badgeTemplate: "flat-square",
     url: "/.netlify/functions/generateBadge",
+    prettyUrl:
+      "https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=flat-square&color=brightgreen&title=Default%20Title&value=Default%20Value",
   }
 
   generateUrl = () => {
     this.setState({
+      prettyUrl: `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
+        this.state.badgeTemplate
+      }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
+        "Default Title"}&value=${this.state.badgeValue || "Default Value"}`,
       url: `/.netlify/functions/generateBadge?template=${
         this.state.badgeTemplate
       }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
@@ -81,7 +87,7 @@ export default class Badge extends Component {
 
         <div>
           <p style={{ fontSize: "20px", fontWeight: "700" }}>
-            {this.state.url}
+            {this.state.prettyUrl}
           </p>
           <img src={this.state.url} />
         </div>
