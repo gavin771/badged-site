@@ -36,9 +36,9 @@ p {
   font-size: 15px;
 }
 
-.header-left img {
-  width: 30%;
-  margin-top: 80px;
+.header-left-photo {
+  width: 25%;
+  margin: 0 auto;
 }
 
 .header-left .skew {

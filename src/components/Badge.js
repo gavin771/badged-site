@@ -1,7 +1,24 @@
 import React, { Component } from "react"
-
+import { useStaticQuery, graphql } from "gatsby"
 import Input from "./input"
 import Select from "./select"
+import Img from "gatsby-image"
+
+const Image = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      badegImage: file(relativePath: { eq: "badge.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100, quality: 50) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return <Img fluid={data.badegImage.childImageSharp.fluid} />
+}
 
 export default class Badge extends Component {
   state = {
@@ -72,7 +89,7 @@ export default class Badge extends Component {
           </p>
 
           <div className="header-left-photo">
-            <img src="/badge.png" alt="badge with a ribbon on it" />
+            <Image />
           </div>
           <div id="triangle-right"></div>
         </div>
