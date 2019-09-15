@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `custom-badge`,
-        short_name: `badged`,
+        name: `GS Badged`,
+        short_name: `GS Badged`,
         start_url: `/`,
         background_color: `#057C67`,
         theme_color: `#057C67`,
