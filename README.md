@@ -2,6 +2,5 @@
   Custom Badge Website
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e88d9e97-45c6-4844-b5df-c19712283810/deploy-status)](https://app.netlify.com/sites/custom-badge/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c3244391-bdeb-4a78-a986-5774f059ecc3/deploy-status)](https://app.netlify.com/sites/determined-heyrovsky-00fe77/deploys)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gavin771/badged-site)

@@ -7,6 +7,8 @@ export default class Badge extends Component {
   state = {
     badgeTitle: "",
     badgeValue: "",
+    html: "",
+    markup: "",
     badgeColor: "brightgreen",
     badgeTemplate: "flat-square",
     url: "/.netlify/functions/generateBadge",
@@ -16,14 +18,28 @@ export default class Badge extends Component {
 
   generateUrl = () => {
     this.setState({
-      prettyUrl: `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
-        this.state.badgeTemplate
-      }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
-        "Default Title"}&value=${this.state.badgeValue || "Default Value"}`,
+      prettyUrl: encodeURI(
+        `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
+          this.state.badgeTemplate
+        }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
+          "Default Title"}&value=${this.state.badgeValue || "Default Value"}`
+      ),
       url: `/.netlify/functions/generateBadge?template=${
         this.state.badgeTemplate
       }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
         "Default Title"}&value=${this.state.badgeValue || "Default Value"}`,
+      html: `<img src=${encodeURI(
+        `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
+          this.state.badgeTemplate
+        }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
+          "Default Title"}&value=${this.state.badgeValue || "Default Value"}`
+      )} alt="custom badge generated" width="200">`,
+      markdown: `![GS Custom Badge](${encodeURI(
+        `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
+          this.state.badgeTemplate
+        }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
+          "Default Title"}&value=${this.state.badgeValue || "Default Value"}`
+      )})`,
     })
   }
 
@@ -39,59 +55,100 @@ export default class Badge extends Component {
 
   render() {
     return (
-      <div style={{ position: "relative" }}>
-        <br />
-        <Input
-          stateName="badgeTitle"
-          value={this.state.badgeTitle}
-          name="badge-title"
-          handleChange={this.handleChange}
-          label="Badge Title"
-        />
-        <br />
-        <Input
-          stateName="badgeValue"
-          value={this.state.badgeValue}
-          name="badge-value"
-          handleChange={this.handleChange}
-          label="Badge Value"
-        />
-        <br />
-        <Select
-          stateName="badgeColor"
-          selected={this.state.badgeColor}
-          handleChange={this.handleChange}
-          options={[
-            { value: "brightgreen", text: "Bright Green" },
-            { value: "green", text: "Green" },
-            { value: "yellow", text: "Yellow" },
-            { value: "yellowgreen", text: "Yellow Green" },
-            { value: "orange", text: "Orange" },
-            { value: "red", text: "Red" },
-            { value: "blue", text: "Blue" },
-            { value: "grey", text: "Grey" },
-            { value: "lightgrey", text: "Light Grey" },
-          ]}
-        />
-        <Select
-          stateName="badgeTemplate"
-          selected={this.state.badgeTemplate}
-          handleChange={this.handleChange}
-          options={[
-            { value: "flat", text: "Flat" },
-            { value: "plastic", text: "Plastic" },
-            { value: "flat-square", text: "Flat Square" },
-            { value: "social", text: "Social" },
-          ]}
-        />
-
-        <div>
-          <p style={{ fontSize: "20px", fontWeight: "700" }}>
-            {this.state.prettyUrl}
+      <header className="header">
+        <div className="header-left">
+          <h1>Badged</h1>
+          <p>
+            some smaller text for this thing not sure what to put so yeah yeah
+            yeah yeah yeah
           </p>
-          <img src={this.state.url} />
+          <p>
+            some smaller text for this thing not sure what to put so yeah yeah
+            yeah yeah yeah
+          </p>
+          <p>
+            some smaller text for this thing not sure what to put so yeah yeah
+            yeah yeah yeah
+          </p>
+
+          <div className="header-left-photo">
+            <img src="/badge.png" alt="badge with a ribbon on it" />
+          </div>
+          <div id="triangle-right"></div>
         </div>
-      </div>
+
+        <div className="header-right">
+          <div className="badge">
+            <img
+              id="custom-badge"
+              src={this.state.url}
+              alt="custom badge generated"
+              width="200"
+            />
+          </div>
+
+          <p>
+            some smaller text for this thing not sure what to put so yeah yeah
+            yeah yeah yeah
+          </p>
+
+          <div className="input-groups">
+            <Input
+              stateName="badgeTitle"
+              value={this.state.badgeTitle}
+              name="badge-title"
+              handleChange={this.handleChange}
+              label="Badge Title"
+            />
+            <Input
+              stateName="badgeValue"
+              value={this.state.badgeValue}
+              name="badge-value"
+              handleChange={this.handleChange}
+              label="Badge Value"
+            />
+            <Select
+              stateName="badgeColor"
+              selected={this.state.badgeColor}
+              handleChange={this.handleChange}
+              options={[
+                { value: "brightgreen", text: "Bright Green" },
+                { value: "green", text: "Green" },
+                { value: "yellow", text: "Yellow" },
+                { value: "yellowgreen", text: "Yellow Green" },
+                { value: "orange", text: "Orange" },
+                { value: "red", text: "Red" },
+                { value: "blue", text: "Blue" },
+                { value: "grey", text: "Grey" },
+                { value: "lightgrey", text: "Light Grey" },
+              ]}
+            />
+            <Select
+              stateName="badgeTemplate"
+              selected={this.state.badgeTemplate}
+              handleChange={this.handleChange}
+              options={[
+                { value: "flat", text: "Flat" },
+                { value: "plastic", text: "Plastic" },
+                { value: "flat-square", text: "Flat Square" },
+                { value: "social", text: "Social" },
+              ]}
+            />
+          </div>
+
+          <div className="generated-code">
+            <p id="raw-link">{this.state.prettyUrl}</p>
+          </div>
+
+          <div className="generated-code">
+            <p id="html-generated">{this.state.html}</p>
+          </div>
+
+          <div className="generated-code" id="markup-generated">
+            <p id="markup-generated">{this.state.markdown}</p>
+          </div>
+        </div>
+      </header>
     )
   }
 }

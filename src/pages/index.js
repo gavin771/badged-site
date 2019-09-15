@@ -8,12 +8,10 @@ import Badge from "../components/Badge"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div
-      style={{
-        marginBottom: `1.45rem`
-      }}
-    >
-      <Badge />
+    <div>
+      <div className="App">
+        <Badge />
+      </div>
     </div>
   </Layout>
 )
