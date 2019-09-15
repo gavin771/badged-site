@@ -50,7 +50,7 @@ export default class Badge extends Component {
           this.state.badgeTemplate
         }&color=${this.state.badgeColor}&title=${this.state.badgeTitle ||
           "Default Title"}&value=${this.state.badgeValue || "Default Value"}`
-      )} alt="custom badge generated" width="200">`,
+      )} alt="custom badge generated">`,
       markdown: `![GS Custom Badge](${encodeURI(
         `https://custom-badge.gavinsamuels.com/.netlify/functions/generateBadge?template=${
           this.state.badgeTemplate
@@ -100,7 +100,6 @@ export default class Badge extends Component {
               id="custom-badge"
               src={this.state.url}
               alt="custom badge generated"
-              width="200"
             />
           </div>
 
