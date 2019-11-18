@@ -75,18 +75,7 @@ export default class Badge extends Component {
       <header className="header">
         <div className="header-left">
           <h1>Badged</h1>
-          <p>
-            some smaller text for this thing not sure what to put so yeah yeah
-            yeah yeah yeah
-          </p>
-          <p>
-            some smaller text for this thing not sure what to put so yeah yeah
-            yeah yeah yeah
-          </p>
-          <p>
-            some smaller text for this thing not sure what to put so yeah yeah
-            yeah yeah yeah
-          </p>
+          <p>A simple way to create and share you own custom badge.</p>
 
           <div className="header-left-photo">
             <Image />
@@ -104,8 +93,8 @@ export default class Badge extends Component {
           </div>
 
           <p>
-            some smaller text for this thing not sure what to put so yeah yeah
-            yeah yeah yeah
+            Update the fields below and copy the snippet that best fits your
+            needs.
           </p>
 
           <div className="input-groups">
@@ -153,14 +142,17 @@ export default class Badge extends Component {
           </div>
 
           <div className="generated-code">
+            Raw URL
             <p id="raw-link">{this.state.prettyUrl}</p>
           </div>
 
           <div className="generated-code">
+            Image tag
             <p id="html-generated">{this.state.html}</p>
           </div>
 
           <div className="generated-code" id="markup-generated">
+            Markdown snippet
             <p id="markup-generated">{this.state.markdown}</p>
           </div>
         </div>
