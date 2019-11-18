@@ -140,19 +140,16 @@ export default class Badge extends Component {
               ]}
             />
           </div>
-
+          <p style={{ fontWeight: 600 }}>Raw URL</p>
           <div className="generated-code">
-            Raw URL
             <p id="raw-link">{this.state.prettyUrl}</p>
           </div>
-
+          <p style={{ fontWeight: 600 }}>Image tag</p>
           <div className="generated-code">
-            Image tag
             <p id="html-generated">{this.state.html}</p>
           </div>
-
+          <p style={{ fontWeight: 600 }}>Markdown snippet</p>
           <div className="generated-code" id="markup-generated">
-            Markdown snippet
             <p id="markup-generated">{this.state.markdown}</p>
           </div>
         </div>
